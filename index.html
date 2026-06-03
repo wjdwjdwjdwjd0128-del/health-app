@@ -361,6 +361,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--page)}
 
 </div>
 <script>
+// ── Service Worker 등록 ──
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  });
+}
+
 // ── 보건관리자 계정 ──
 const MANAGERS=[
   {id:'M001',name:'이보건',dept:'보건관리팀',role:'보건관리자'},
